@@ -14,17 +14,22 @@ const baseUrl = import.meta.env.BASE_URL;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title} - CSARCH2 Virtual Exhibit</title>
-    </head>
+    
+        <style is:global>
+          @import "tailwindcss";
+        </style>
+      </head>
 
     <body>
         <RedWaveBackground />
         <main>
           <slot />
-          <nav>
+          <!-- Uncomment this for navigation  -->
+          <!-- <nav>
             <a href={`${baseUrl}/freebsd`}>Home</a>
             <br>
             <a href={`${baseUrl}/freebsd/cli`}>CLI-Link</a>
-          </nav>
+          </nav> -->
         </main>  
     </body>
 </html>
