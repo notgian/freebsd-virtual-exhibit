@@ -2,10 +2,9 @@ import { useState } from "react";
 import OSPanel from "./OSPanel";
 import CommandInput from "./CommandInput";
 
-
 const HELP_COMMANDS = [
   { name: "ls", description: "list directory contents" },
-  { name: "cd", description: "change the working directory" },
+  // { name: "cd", description: "change the working directory" },
   { name: "echo", description: "print text to the terminal" },
   { name: "cat", description: "print file contents" },
 ];
