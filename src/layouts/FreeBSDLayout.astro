@@ -1,0 +1,29 @@
+---
+const { title, author, readingTime } = Astro.props.frontmatter ?? Astro.props;
+const { headings } = Astro.props; 
+
+// import '../styles/global.css';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title} - CSARCH2 Virtual Exhibit</title>
+    </head>
+
+    <body>
+        <main>
+          <slot />
+          <nav>
+            <a href={`${baseUrl}/freebsd`}>Home</a>
+            <br>
+            <a href={`${baseUrl}/freebsd/cli`}>CLI-Link</a>
+          </nav>
+        </main>  
+    </body>
+</html>
+
