@@ -9,20 +9,18 @@ interface CommandInputProps {
 
 export default function CommandInput({ defaultValue = "", onSubmit, inject }: CommandInputProps) {
   const [draft, setDraft] = useState(defaultValue);
-
-  // Sync injected value into the input field whenever it changes
+ 
   useEffect(() => {
     if (inject !== undefined) setDraft(inject);
   }, [inject]);
-
+ 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => setDraft(e.target.value);
-
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") onSubmit(draft);
   };
-
+ 
   return (
-    <label className="flex items-center gap-2 rounded-full border border-red-600 px-8 py-2 font-mono text-red-500 focus-within:ring-2 focus-within:ring-red-500/50">
+    <label className="flex w-full items-center gap-2 rounded-full border border-red-600 px-8 py-2 font-mono text-red-500 focus-within:ring-2 focus-within:ring-red-500/50">
       <span aria-hidden="true">{">"}</span>
       <input
         type="text"
@@ -33,7 +31,7 @@ export default function CommandInput({ defaultValue = "", onSubmit, inject }: Co
         spellCheck={false}
         autoComplete="off"
         aria-label="Terminal command (press Enter to run)"
-        className="w-40 bg-transparent text-center text-red-500 placeholder:text-red-500/50 outline-none"
+        className="min-w-0 flex-1 bg-transparent  text-red-500 placeholder:text-red-500/50 outline-none"
       />
     </label>
   );

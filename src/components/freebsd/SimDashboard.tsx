@@ -40,7 +40,7 @@ export default function SimDashboard() {
  
   return (
     <div className="relative min-h-screen overflow-hidden px-6 py-12">
-      <div className="relative mx-auto flex max-w-4xl flex-col items-center gap-10">
+      <div className="relative flex w-full flex-col items-center gap-10">
  
         {sim.phase === "idle" && (
           <p className="font-mono text-xs text-zinc-600 text-center">

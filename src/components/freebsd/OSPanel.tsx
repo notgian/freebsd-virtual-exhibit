@@ -22,14 +22,11 @@ interface OSPanelProps {
 
 export default function OSPanel({ host, user, score, command, commands, simState, simPhase }: OSPanelProps) {
   const isSim = simPhase && simPhase !== "idle";
-
   return (
-    <div className="flex flex-col items-center gap-4">
-
-      {/* Sim metric bar only mounts when the network-stream command is running */}
+    <div className="flex flex-col items-stretch gap-4 w-full">
       {isSim && simState && (
-        <div className="w-full max-w-sm rounded-md border border-red-600/40 bg-black/80 px-5 py-4 flex items-end justify-between gap-4 shadow-[0_0_25px_-5px_rgba(239,68,68,0.3)]">
-          <div className="flex-1 flex flex-col gap-1.5">
+        <div className="w-full rounded-md border border-red-600/40 bg-black/80 px-5 py-4 flex items-end justify-between gap-4 shadow-[0_0_25px_-5px_rgba(239,68,68,0.3)]">
+          <div className="flex-1 flex flex-col gap-1.5 min-w-0">
             <ProgressBar value={simState.progress} done={simState.done} />
             <p className="font-mono text-xs mt-1">
               {simState.done
@@ -44,11 +41,11 @@ export default function OSPanel({ host, user, score, command, commands, simState
           </div>
         </div>
       )}
-
       <TerminalPanel user={user} host={host} command={command} commands={commands} />
     </div>
   );
 }
+
 
 // placing this here because I don't want to create a lib folder
 

@@ -58,9 +58,8 @@ function evaluate(raw: string): string[] {
 export default function TerminalPanel({ user, host, command }: TerminalPanelProps) {
   const trimmed = command.trim();
   const lines = useMemo(() => evaluate(trimmed), [trimmed]);
-
   return (
-    <div className="flex h-72 w-full max-w-sm flex-col overflow-hidden rounded-md border border-red-600/70 bg-black/90 p-5 font-mono text-sm text-white shadow-[0_0_25px_-5px_rgba(239,68,68,0.4)]">
+    <div className="flex h-72 w-full flex-col overflow-hidden rounded-md border border-red-600/70 bg-black/90 p-5 font-mono text-sm text-white shadow-[0_0_25px_-5px_rgba(239,68,68,0.4)]">
       <p className="mb-3 shrink-0">
         <span className="text-red-500">{user}@{host}</span>
         <span className="text-white">{"> "}{trimmed || "help"}</span>
