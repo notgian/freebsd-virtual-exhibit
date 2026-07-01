@@ -1,19 +1,24 @@
-import { useState, type ChangeEvent, type KeyboardEvent } from "react";
+import { useState, useEffect, type ChangeEvent, type KeyboardEvent } from "react";
 
 interface CommandInputProps {
   defaultValue?: string;
   onSubmit: (value: string) => void;
+  /** When set, forces the input field to this value (e.g. clicking a hint) */
+  inject?: string;
 }
 
-export default function CommandInput({ defaultValue = "", onSubmit }: CommandInputProps) {
+export default function CommandInput({ defaultValue = "", onSubmit, inject }: CommandInputProps) {
   const [draft, setDraft] = useState(defaultValue);
+
+  // Sync injected value into the input field whenever it changes
+  useEffect(() => {
+    if (inject !== undefined) setDraft(inject);
+  }, [inject]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => setDraft(e.target.value);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      onSubmit(draft);
-    }
+    if (e.key === "Enter") onSubmit(draft);
   };
 
   return (
