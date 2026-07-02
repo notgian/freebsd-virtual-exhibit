@@ -9,10 +9,28 @@ readingTime: "69 minutes"
 
 {/* Images have to be imported manually */}
 
+import { Image } from 'astro:assets';
+import beastieLogo from '../assets/FreeBSD-logo.png';
+import '../styles/freebsd.css';
+
 {/* Actual content */}
 
-# FreeBsd
+<div className='homepage-container' style={{ display: 'flex', flexDirection: 'column',
+                                             alignItems: 'center', justifyContent: 'center',
+                                             minHeight: '90vh' }}>
 
-Lorem ipsum sit amet
+    <div style={{ marginTop: '12vh' }}>
+        <Image src={beastieLogo} alt="3D FreeBSD Logo" width={300} />
+    </div>
+
+    <h1 className="freebsd-title">
+        FREEBSD
+    </h1>
+
+    <a href="freebsd/freebsd-vs-linux" className="learn-more-btn">
+        Learn More
+    </a>
+
+</div>
 
 
