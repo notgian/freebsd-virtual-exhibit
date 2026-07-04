@@ -1,0 +1,112 @@
+---
+// This is a pure Astro component
+---
+<div class="history-wrapper">
+  <!-- Timeline Column -->
+  <div class="timeline-column">
+    <div class="timeline-arc"></div>
+    <div class="nodes-container">
+      <div class="node-wrapper node-1"><div class="node active" data-year="1993"><span class="node-text">1993</span></div></div>
+      <div class="node-wrapper node-2"><div class="node" data-year="1994"><span class="node-text">1994</span></div></div>
+      <div class="node-wrapper node-3"><div class="node" data-year="1996"><span class="node-text">1996</span></div></div>
+      <div class="node-wrapper node-4"><div class="node" data-year="2000"><span class="node-text">2000</span></div></div>
+      <div class="node-wrapper node-5"><div class="node" data-year="2012"><span class="node-text">2012</span></div></div>
+      <div class="node-wrapper node-6"><div class="node" data-year="2026"><span class="node-text">2026</span></div></div>
+    </div>
+  </div>
+
+  <!-- Content Card Column -->
+  <div class="content-column">
+    <div class="history-card">
+      <div class="card-text-wrapper" id="text-container">
+        <h2 class="year-title" id="card-year">1993</h2>
+        <div id="card-paragraphs">
+          <p><b>Early 1993:</b>Three developers: <b> Nate Williams, Rod Grimes, and Jordan Hubbard </b> had initially been working on a project called: 386BSD 0.5 or 386BSD Interim. This project had the goal of improving 386BSD, a buggy operating system, that required multiple fixes after a year’s worth of neglect. 
+            Back then, Williams, Grimes and Hubbard had been working to assist Bill Jolitz with fixing 386BSD.</p>
+          <p><b>June 1993:</b> Jolitz suddenly decided to abandon the project. As the project continued to grow and take shape, the trio 
+            decided to keep pushing forward with the project on their own. During this time, developer David Greenman coined the name 
+            “FreeBSD” which became the official name of the operating system</p>
+          <p><b>November 1993: FreeBSD1.0</b>  was first released to the public. To ensure that those who aren’t able to easily access the Internet were able to use FreeBSD, Hubbard reached out to a company called Walnut Creek CD-ROM. The company stepped up and distributed FreeBSD on CD and provided 
+                the developers with a machine that has access to fast Internet connection. At its first release, FreeBSD1.0 was based on the 4.3BSD-Lite (Net/2) tape of U.C. Berkeley and had many components provided by 386BSD and the Free Software Foundation.</p>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const historyData = {
+    "1993": {
+      img: "image_ccb626.jpg",
+      text: [
+        "<b>Early 1993:</b> Three developers: <b> Nate Williams, Rod Grimes, and Jordan Hubbard </b> had initially been working on a project called: 386BSD 0.5 or 386BSD Interim. This project had the goal of improving 386BSD, a buggy operating system, that required multiple fixes after a year’s worth of neglect. Back then, Williams, Grimes and Hubbard had been working to assist Bill Jolitz with fixing 386BSD.",
+        "<b>June 1993:</b> Jolitz suddenly decided to abandon the project. As the project continued to grow and take shape, the trio decided to keep pushing forward with the project on their own. During this time, developer David Greenman coined the name “FreeBSD” which became the official name of the operating system.",
+        "<b>November 1993: FreeBSD1.0</b>  was first released to the public. To ensure that those who aren’t able to easily access the Internet were able to use FreeBSD, Hubbard reached out to a company called Walnut Creek CD-ROM. The company stepped up and distributed FreeBSD on CD and provided the developers with a machine that has access to fast Internet connection. At its first release, FreeBSD1.0 was based on the 4.3BSD-Lite (Net/2) tape of U.C. Berkeley and had many components provided by 386BSD and the Free Software Foundation."
+    ]
+
+    },
+    "1994": {
+      text: [
+        "<b>May 1994:</b> Just as <b>FreeBSD 1.1</b> was released following the success of <b>FreeBSD 1.0</b>, a long standing lawsuit between Berkeley and Novell over the Net/2 tape had just been settled. As part of the settlement conditions, U.C Berkeley had to remove the files that involved code from Net/2 as these were copyrighted and considered as property of Novell. This included the current FreeBSD distributions. Due to this, FreeBSD was forced to delete significant files that powered the software and re-write its code.",
+        "<b>November 1994:</b> After releasing <b>FreeBSD 1.1.5.1</b> in July of 1994 the last distribution of FreeBSD that was based under Net/2. FreeBSD’s developers had spent four months re-writing code to work on the new and still incomplete 4.4BSD-Lite due to the settlement clauses from Novell. Developers had to replace the deleted files, integrate various changes, and fix bugs to deliver a brand new version in a short amount of time.",
+        "<b>December 1994: FreeBSD 2.0</b> was officially launched and was now completely reworked from the Net/2 based system."
+      ]
+    },
+    "1996": {
+      text: [
+        "<b>August 1996: FreeBSD 2.1.5</b> was then released and quickly became popular for both Internet Service Providers (ISPs) and commercial communities that resulted in a significant success for FreeBSD.",
+      ]
+    },
+    "2000": {
+      text: [
+        "<b>March 2000: FreeBSD 4.0</b> introduced <b>FreeBSD Jails</b> with the command: jail(). This feature is an implementation of virtualization within the operating system (OS) level. This meant that users were now able to separate the OS into mini-computers which laid the foundation for modern cloud containers like <b>Docker</b>. "
+      ]
+    },
+     "2012": {
+      text: [
+        "<b>March 2000: FreeBSD 4.0</b> was released which improved on the previous version and included an optional feature: <b>Capsicum</b>, a lightweight OS capability and sandbox framework.This allowed developers to perform application compartmentalization which allows them to split up large portions of a software into isolated components. This became significant as Sony used FreeBSD 9.0 and Capsicum to create their own operating system: <b>Obris OS</b> for the PlayStation 4. <b>Netflix</b> also deployed their first <b>Open Connect</b> Content Delivery Network (CDN) servers using this version. The sendfile() system command included in this version of FreeBSD allowed 10Gbit/s of video per server to be sent across the network with less stress on the computer CPU."
+      ]
+    },
+     "2026": {
+      text: [
+        "<b>June 2026:</b> Today, FreeBSD continues to grow with its latest release of <b>FreeBSD 15.1</b>. Currently, FreeBSD 15.1 features automated patching for modern cloud environments such as AWS and Google Compute Engine, OpenZFS storage optimizations, and advanced virtualization capabilities."
+      ]
+    },
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const nodes = document.querySelectorAll('.node');
+    const yearTitle = document.getElementById('card-year');
+    const cardImage = document.getElementById('card-image');
+    const cardParagraphs = document.getElementById('card-paragraphs');
+
+    nodes.forEach(node => {
+      node.addEventListener('click', function() {
+        
+        // Update the red glowing active state
+        nodes.forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+
+        // Get the year from the clicked node
+        const year = this.getAttribute('data-year');
+        const data = historyData[year];
+
+        // Replace content if data exists
+        if (data) {
+          if (yearTitle) yearTitle.textContent = year;
+          if (cardImage) cardImage.src = data.img;
+          
+          if (cardParagraphs) {
+            cardParagraphs.innerHTML = '';
+            data.text.forEach(text => {
+              const p = document.createElement('p');
+              p.innerHTML = text;
+              cardParagraphs.appendChild(p);
+            });
+          }
+        }
+      });
+    });
+  });
+</script>
