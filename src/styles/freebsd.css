@@ -1,0 +1,133 @@
+/* freebsd.css */
+
+.learn-more-btn {
+    margin-top: 30px;
+    padding: 12px 40px;
+    border: 1px solid #cc0000;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(80, 0, 0, 0.4);
+    font-size: 1.1rem;
+    font-family: "Pattanakarn", sans-serif;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.learn-more-btn:hover {
+    background-color: rgba(150, 0, 0, 0.6);
+    box-shadow: 0 0 15px 2px rgba(204, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.learn-more-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px 1px rgba(204, 0, 0, 0.5);
+}
+
+@font-face {
+    font-family: 'Pattanakarn';
+    src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pattanakarn-Black';
+    src: url('../assets/Pattanakarn_Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pattanakarn-ExtraBold';
+    src: url('../assets/Pattanakarn_ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.freebsd-title {
+    font-family: 'Pattanakarn', sans-serif;
+    color: white;
+    font-size: 7rem;
+    margin-top: 2vh;
+    letter-spacing: 8px;
+}
+
+.venn-container {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 80px;
+    position: relative;
+}
+
+.circle {
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Pattanakarn', sans-serif;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    mix-blend-mode: screen;
+
+    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
+    background-blend-mode: overlay;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    filter: contrast(100%);
+}
+
+.linux-circle {
+    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, #363434, #33333369);
+    background-blend-mode: multiply, normal;
+    background-repeat: repeat;
+    background-size: 200px, cover;
+
+    margin-right: -200px;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.freebsd-circle {
+    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, #3a0a0a, #9900009d);
+    background-blend-mode: multiply, normal;
+    background-repeat: repeat;
+    background-size: 200px, cover;
+
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.circle span {
+    margin: 10px 0;
+}
+
+.comparison-title {
+    font-family: 'Pattanakarn-Black', sans-serif;
+    color: white;
+    font-size: 3rem;
+    margin-top: 10vh;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.venn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    position: relative;
+    z-index: 10;
+}
