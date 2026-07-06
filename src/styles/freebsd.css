@@ -56,3 +56,40 @@
     margin-top: 2vh;
     letter-spacing: 8px;
 }
+
+/* navbar */
+nav {
+    color: white;
+    padding: 1em 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav span {
+    margin: 0 2em; 
+}
+
+nav .nav-title {
+    font-family: 'Pattanakarn';
+    src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
+    text-decoration: underline;
+    font-size: 1.5em;
+}
+
+nav .nav-items {
+    font-family: 'Pattanakarn';
+    src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+nav .nav-toggle {
+    font-family: 'Pattanakarn-ExtraBold';
+    src: url('../assets/Pattanakarn_ExtraBold.ttf') format('truetype');
+    flex-grow: 2;
+    text-align: right;
+    cursor: pointer;
+}
