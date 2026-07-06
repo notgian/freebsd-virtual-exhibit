@@ -57,201 +57,39 @@
     letter-spacing: 8px;
 }
 
-.venn-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position: relative;
-    z-index: 10;
-
-    transform: translateY(-50px);
-}
-
-.circle {
-    width: 680px;
-    height: 680px;
-    position: relative;
-
-    border-radius: 50%;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
+/* navbar */
+nav {
     color: white;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #ffffff;
-    transition: transform 0.3s ease;
-    mix-blend-mode: screen;
-
-    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.3));
-    background-blend-mode: overlay;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    filter: contrast(100%);
-    
-}
-
-.linux-circle {
-    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, #363434, #33333369);
-    background-blend-mode: multiply, normal;
-    background-repeat: repeat;
-    background-size: 200px, cover;
-
-    margin-right: -280px;
-    z-index: 1;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    padding-right: 190px;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.freebsd-circle {
-    background-image: url('../assets/Cartographer.png'), radial-gradient(circle at 30% 30%, #3a0a0a, #9900009d);
-    background-blend-mode: multiply, normal;
-    background-repeat: repeat;
-    background-size: 200px, cover;
-
-    z-index: 2;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    padding-left: 190px;
-    box-sizing: border-box;
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.circle span {
-    margin: 10px 0;
-}
-
-.comparison-title {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.02rem;
-    color: white;
-    font-size: 4rem;
-    margin-top: 5vh;
-    text-align: center;
-}
-
-.venn-container {
+    padding: 1em 3em;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-    position: relative;
-    z-index: 10;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.venn-point {
-    position: relative;
-    cursor: help;
-    width: fit-content;
-    margin: 30px auto;
-    font-size: 1.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-align: center;
-    transition: color 0.2s ease;
-    z-index: 10;
+nav span {
+    margin: 0 2em; 
 }
 
-.venn-point:hover {
-    color: #ffcccc;
+nav .nav-title {
+    font-family: 'Pattanakarn';
+    src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
+    text-decoration: underline;
+    font-size: 1.5em;
 }
 
-.intersection .venn-point {
-    margin: 40px auto;
-    font-size: 1.3rem;
-}
-
-.point-details {
-    position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    width: 500px;
-
-    background: rgba(22, 22, 22, 0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 100;
-
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    line-height: 1.6;
-    text-align: left;
-    color: #dcdcdc;
-}
-
-.venn-point:hover .point-details {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-.point-details p {
-    margin-bottom: 1rem;
-}
-
-.point-details p:last-child {
-    margin-bottom: 0;
-}
-
-.outer-point {
-    position: absolute;
-    margin: 0 !important;
-}
-
-/* Linux Placement (Left Circle) */
-.l-pos-1 { top: 20%; left: 35%; }
-.l-pos-2 { top: 40%; left: 27.5%; }
-.l-pos-3 { top: 60%; left: 10%; }
-.l-pos-4 { top: 80%; left: 30%; }
-
-/* FreeBSD Placement (Right Circle) */
-.f-pos-1 { top: 20%; right: 25%; }
-.f-pos-2 { top: 40%; right: 28%; }
-.f-pos-3 { top: 60%; right: 17.5%; }
-.f-pos-4 { top: 80%; right: 35%; }
-
-.hover-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 50px;
-    padding: 8px 20px;
-    color: #cccccc;
-    font-family: system-ui, -apple-system, sans-serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    animation: pulse-hint 3s infinite ease-in-out;
-}
-
-@keyframes pulse-hint {
-    0% { opacity: 0.6; box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
-    50% { opacity: 1; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); }
-    100% { opacity: 0.6; box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
-}
-
-.hint-container {
-    width: 100%;
+nav .nav-items {
+    font-family: 'Pattanakarn';
+    src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+nav .nav-toggle {
+    font-family: 'Pattanakarn-ExtraBold';
+    src: url('../assets/Pattanakarn_ExtraBold.ttf') format('truetype');
+    flex-grow: 2;
+    text-align: right;
+    cursor: pointer;
 }
