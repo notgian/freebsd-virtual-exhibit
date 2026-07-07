@@ -1,0 +1,197 @@
+/* Container Setup */
+.history-wrapper {
+  background-color: transparent; /* Ensures the layout's red wave background shows through */
+  display: flex;
+  align-items: center; 
+  gap: 5rem;
+  padding: 3rem 5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --- Timeline Section --- */
+.timeline-column {
+  position: relative;
+  width: 150px;
+  height: 85vh; /* Gives the timeline breathing room */
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Curved Red Line */
+.timeline-arc {
+  position: absolute;
+  top: 25px; 
+  bottom: 25px;
+  left: -200px; /* Pulls the circle left so only the right arc is visible */
+  width: 240px;
+  border-right: 6px solid #e00000;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 4px 0 15px rgba(224, 0, 0, 0.4);
+}
+
+.nodes-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Node Wrappers (Offsets to align with the arc) */
+.node-wrapper { display: flex; align-items: center; }
+
+.node-1 { padding-left: 0px; }
+.node-2 { padding-left: 45px; }
+.node-3 { padding-left: 75px; }
+.node-4 { padding-left: 75px; }
+.node-5 { padding-left: 45px; }
+.node-6 { padding-left: 0px; }
+/* The Actual Circles */
+.node {
+  width: 55px;
+  height: 55px;
+  background-color: #0a0a0a;
+  border: 2px solid #2a2a2a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.node:hover {
+  border-color: #555;
+  transform: scale(1.05);
+}
+
+/* Active Node Styling */
+.node.active {
+  border: 4px solid #ff0000;
+  background-color: #1a1a1a;
+  transform: scale(1.15);
+  box-shadow: 
+    0 0 0 8px rgba(255, 0, 0, 0.15), /* Inner Halo */
+    0 0 25px rgba(255, 0, 0, 0.6);   /* Outer Glow */
+}
+
+/* --- Card Section --- */
+.content-column {
+  flex: 1;
+}
+
+.history-card {
+  background: rgba(22, 22, 22, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+.card-text-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.year-title {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.card-text-wrapper p {
+  color: #dcdcdc;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+#card-paragraphs p {
+  margin-bottom: 1.5rem; 
+}
+
+#card-paragraphs p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .history-wrapper {
+    flex-direction: column;
+    padding: 2rem;
+    gap: 3rem;
+  }
+  .timeline-column {
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 2rem;
+  }
+  .timeline-arc {
+    display: none; 
+  }
+  .node-wrapper {
+    padding-left: 0 !important;
+    margin-right: 2rem;
+  }
+  .history-card {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .card-image-wrapper {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Added the button for venn diagram */
+.btn-history {
+  background: linear-gradient(135deg, #3a0000 0%, #1a0000 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  padding: 0.8rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-history:hover {
+  background: linear-gradient(135deg, #4a0000 0%, #2a0000 100%);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.action-row {
+  position: absolute;
+  bottom: 3rem;
+  right: 5rem;
+  z-index: 10;
+}
+

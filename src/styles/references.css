@@ -1,0 +1,21 @@
+main {
+    padding: 2em 5em;
+    background-color: rgba(0,0,0, 0.6);
+    overflow-y: scroll;
+}
+
+h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    margin: 0.5em 0;
+}
+
+.bib-container {
+    color: white;
+    text-indent: -5em;
+    padding-left: 5em;
+    display: block;
+}

@@ -1,0 +1,21 @@
+---
+layout: '../../layouts/FreeBSDLayout.astro'
+title: "History"
+author: "David, Justin; Ortha, Gian; Perdon, Linus; Tan, Neil; Villorente, Khyle"
+readingTime: "69 minutes"
+---
+
+import '../../styles/history.css';
+import '../../styles/freebsd.css';
+import HistoryTimeline from '../../layouts/HistoryTimeline.astro';
+
+<div class="history-wrapper">
+    <HistoryTimeline />
+
+    {/* Redirect Button to Venn Diagram */}
+    <div class="action-row">
+        <a href="freebsd-vs-linux" class="btn-history">
+            Compare
+        </a>
+    </div>
+</div>

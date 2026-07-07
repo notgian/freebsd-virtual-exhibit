@@ -22,3 +22,9 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# lockfile
+*.lock
+
+#.orig files for merge conflict resolution
+**.orig
