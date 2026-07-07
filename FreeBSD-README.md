@@ -38,3 +38,28 @@ The dashboard will feature a global command input bar at the top, positioned abo
 - Output logs are dynamically displayed on each terminal when a user inputs any of the provided commands. Some common Linux and FreeBSD (i.e.echo, cd, lds, etc.) will also be made available, given some restrictions, to reward users who may want to explore a bit more. Additionally, output logs will include short descriptions at the end describing to the user what the command did,  how it might translate in a real-world application, and how the command being run differs when run on FreeBSD vs Linux.
 ### Styling 
 Tailwind CSS will be utilized for styling of the overall interactive terminal, positioning, animations and other design elements that will be utilized in the development of the overall virtual exhibit.
+
+# Virtual Exhibit Development
+This section is to document any challenges, experiences, and thoughts we had or encountered in developing our interactive exhibit.
+
+## Declaration of AI Usage
+Generative AI and LLMs were used to aid in the creation of this project primarily through the following means:
+- learning libraries and frameworks
+- ui/ux development
+- reformatting of text
+
+## Task Delegation Strategy
+We divided the main tasks into two: writng and the development of the website. We delegated two people to be in charge of writing the content for the webpages, and three people to be in charge of developing each page and its components. Splitting it this way made it easier for us to focus on one major task at a time rather than having everyone writing and developing at the same time. 
+
+## Challenges and Interesting Findings
+In terms of writing, we didn't really have that many challenges, other than the fact that information can be quite spread out in many different sources. Especially when it came to talking about some of the technical details of FreeBSD, one of the most used resources for FreeBSD is its documentation. Its documentation is surprisingly comprehensive yet easy to follow, covering everything from installing the operating system, to each and every one of its big and small features. Despite only viewing perhaps less than 2% of it, I already learned a lot of interesting things about FreeBSD and how it works.
+
+One of the little challenges we had in the development part this project is that we all had nearly no knowledge on what astro is and how it works. Some of us have some knowledge and experience using React, but it is also somewhat limited. Generally, there was just a bit of a knowledge gap that we had to fill.
+
+Luckily, it was not too much of a hassle because (1) a template for the project was already provided, and (2) due to the simple, static nature of the webpages we were making, it wasn't too much of a hassle setting up each page. Something interesting that we noticed that Astro does is to actually remove the hassle of having to manually create a route ourselves, and just make that route for us based on the filetree.
+
+## TO-DOs
+- [ ] Make navbar collapsible
+- [ ] Make layout mobile responsive
+- [ ] Fix a few visual bugs
+- [ ] Improve readability of some components 
