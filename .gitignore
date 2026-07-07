@@ -25,3 +25,6 @@ Thumbs.db
 
 # lockfile
 *.lock
+
+#.orig files for merge conflict resolution
+**.orig

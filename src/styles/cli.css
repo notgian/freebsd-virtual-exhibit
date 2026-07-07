@@ -17,4 +17,16 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+    z-index: 50;
+}
+
+.btn-cli:hover {
+    border-color: rgba(255, 100, 100, 0.5);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-cli:hover {
+  background: linear-gradient(135deg, #4a0000 0%, #2a0000 100%);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
 }
