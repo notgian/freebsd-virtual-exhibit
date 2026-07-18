@@ -40,6 +40,62 @@ const baseUrl = import.meta.env.BASE_URL;
         </nav>
         <main>
             <slot />
-        </main>  
+        </main>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Navigation menu toggle
+                const toggle = document.querySelector('.nav-toggle');
+                const items = document.querySelector('.nav-items');
+                if (toggle && items) {
+                    toggle.addEventListener('click', () => {
+                        items.classList.toggle('active');
+                    });
+                }
+
+                // Venn diagram detail drawer (only hooks up if venn points exist)
+                const isMobile = () => window.innerWidth < 1024;
+                const drawer = document.getElementById('mobile-detail-drawer');
+                const drawerTitle = drawer ? drawer.querySelector('.mobile-drawer-title') : null;
+                const drawerBody = drawer ? drawer.querySelector('.mobile-drawer-body') : null;
+                const drawerClose = drawer ? drawer.querySelector('.mobile-drawer-close') : null;
+                const drawerOverlay = drawer ? drawer.querySelector('.mobile-drawer-overlay') : null;
+
+                const vennPoints = document.querySelectorAll('.venn-point');
+                if (vennPoints.length > 0) {
+                    vennPoints.forEach(point => {
+                        point.addEventListener('click', (e) => {
+                            if (!isMobile()) return;
+                            
+                            // Extract plain text header
+                            let titleText = '';
+                            for (const node of point.childNodes) {
+                                if (node.nodeType === Node.TEXT_NODE) {
+                                    titleText += node.textContent;
+                                }
+                            }
+                            titleText = titleText.trim();
+
+                            const details = point.querySelector('.point-details');
+                            if (details && drawer && drawerTitle && drawerBody) {
+                                drawerTitle.textContent = titleText;
+                                drawerBody.innerHTML = details.innerHTML;
+                                drawer.classList.add('active');
+                                e.stopPropagation();
+                            }
+                        });
+                    });
+                }
+
+                const closeDrawer = () => {
+                    if (drawer) {
+                        drawer.classList.remove('active');
+                    }
+                };
+
+                if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+                if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+            });
+        </script>
     </body>
 </html>
