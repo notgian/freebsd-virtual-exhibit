@@ -63,9 +63,9 @@ export default function PortsVsPkg() {
 
   const compileIntervalRef = useRef(null);
 
-  // --- LOGIC ---
+
   const startSimulation = () => {
-    // 1. Reset UI State
+
     setBtnDisabled(true);
     setBtnText("Installation in progress...");
     setShowExplanation(false);
@@ -81,7 +81,7 @@ export default function PortsVsPkg() {
 
     if (compileIntervalRef.current) clearInterval(compileIntervalRef.current);
 
-    // 2. Execute Pkg Simulation (Finishes fast)
+  
     setTimeout(() => {
       setPkgProgress(100);
       setPkgLog("Successfully installed in 1.2s");
@@ -101,7 +101,7 @@ export default function PortsVsPkg() {
         setPortsStatusClass("status-indicator status-done");
         setBtnText("Race Finished");
         
-        // REVEAL THE "WHAT JUST HAPPENED" PANEL
+
         setShowExplanation(true);
         
         setTimeout(() => {
