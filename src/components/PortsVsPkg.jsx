@@ -89,7 +89,7 @@ export default function PortsVsPkg() {
       setPkgStatusClass("status-indicator status-done");
     }, 1200);
 
-    // 3. Execute Ports Simulation
+
     let logIndex = 0;
     compileIntervalRef.current = setInterval(() => {
       if (logIndex < COMPILER_LOGS.length) {
