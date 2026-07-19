@@ -1,16 +1,21 @@
 .venn-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50px);
+    transform-origin: top center;
     z-index: 10;
-
-    transform: translateY(-50px);
+    width: 1080px;
+    flex-shrink: 0;
 }
 
 .circle {
     width: 680px;
     height: 680px;
+    flex-shrink: 0;
     position: relative;
 
     border-radius: 50%;
@@ -76,14 +81,7 @@
     text-align: center;
 }
 
-.venn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-    position: relative;
-    z-index: 10;
-}
+
 
 .venn-point {
     position: relative;
@@ -140,6 +138,13 @@
 /*     visibility: visible; */
 /*     transform: translateX(-50%) translateY(0); */
 /* } */
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    .venn-point:hover .point-details {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+}
 
 .point-details p {
     margin-bottom: 1rem;
@@ -318,4 +323,154 @@
     user-select: none;
     cursor: pointer;
     text-align: right;
+/* Responsive adjustments for Venn diagram */
+@media (max-width: 1200px) {
+    .venn-container {
+        transform: translateX(-50%) translateY(-50px) scale(0.8);
+        margin-bottom: -120px; /* Offset the space lost by scale */
+    }
+}
+
+@media (max-width: 950px) {
+    .venn-container {
+        transform: translateX(-50%) translateY(-50px) scale(0.65);
+        margin-bottom: -220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .venn-container {
+        transform: translateX(-50%) translateY(-50px) scale(0.5);
+        margin-bottom: -320px;
+    }
+    .comparison-title {
+        font-size: 2.5rem;
+        margin-top: 2vh;
+    }
+}
+
+@media (max-width: 550px) {
+    .venn-container {
+        transform: translateX(-50%) translateY(-50px) scale(0.42);
+        margin-bottom: -380px;
+    }
+}
+
+@media (max-width: 420px) {
+    .venn-container {
+        transform: translateX(-50%) translateY(-50px) scale(0.35);
+        margin-bottom: -430px;
+    }
+}
+
+@media (max-width: 1023px) {
+    /* Hide the inline point details popup on mobile so we don't hover it */
+    .point-details {
+        display: none !important;
+    }
+    /* Add a visual indicator or slightly different styling on mobile if needed */
+    .venn-point {
+        cursor: pointer;
+    }
+}
+
+/* Mobile bottom drawer sheet styles */
+.mobile-drawer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-drawer.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.mobile-drawer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.mobile-drawer-content {
+    position: relative;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: 2.5rem 1.5rem 3.5rem 1.5rem;
+    max-height: 70vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-drawer.active .mobile-drawer-content {
+    transform: translateY(0);
+}
+
+.mobile-drawer-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.mobile-drawer-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.mobile-drawer-title {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    padding-right: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.mobile-drawer-body {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #dcdcdc;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.mobile-drawer-body p {
+    margin-bottom: 1rem;
+}
+
+.mobile-drawer-body p:last-child {
+    margin-bottom: 0;
 }

@@ -4,6 +4,12 @@ main {
     overflow-y: scroll;
 }
 
+@media (max-width: 768px) {
+    main {
+        padding: 2em 1.5rem;
+    }
+}
+
 h1 {
     color: white;
     font-weight: 900;
@@ -18,4 +24,11 @@ h1 {
     text-indent: -5em;
     padding-left: 5em;
     display: block;
+}
+
+@media (max-width: 480px) {
+    .bib-container {
+        text-indent: -2em;
+        padding-left: 2em;
+    }
 }
