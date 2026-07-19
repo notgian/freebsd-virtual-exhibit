@@ -52,24 +52,30 @@
 .freebsd-title {
     font-family: 'Pattanakarn', sans-serif;
     color: white;
-    font-size: 7rem;
+    font-size: clamp(2.5rem, 8vw, 7rem);
     margin-top: 2vh;
     letter-spacing: 8px;
+    text-align: center;
 }
 
 .venn-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50px);
+    transform-origin: top center;
     z-index: 10;
-
-    transform: translateY(-50px);
+    width: 1080px;
+    flex-shrink: 0;
 }
 
 .circle {
     width: 680px;
     height: 680px;
+    flex-shrink: 0;
     position: relative;
 
     border-radius: 50%;
@@ -135,14 +141,7 @@
     text-align: center;
 }
 
-.venn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
-    position: relative;
-    z-index: 10;
-}
+
 
 .venn-point {
     position: relative;
@@ -195,10 +194,18 @@
     color: #dcdcdc;
 }
 
-.venn-point:hover .point-details {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    .venn-point:hover .point-details {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@media (max-width: 1023px) {
+    .point-details {
+        display: none !important;
+    }
 }
 
 .point-details p {
@@ -300,6 +307,9 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 50;
 }
 
 nav span {
@@ -311,6 +321,7 @@ nav .nav-title {
     src: url('../assets/Pattanakarn_Regular.ttf') format('truetype');
     text-decoration: underline;
     font-size: 1.5em;
+    margin: 0;
 }
 
 nav .nav-items {
@@ -322,10 +333,66 @@ nav .nav-items {
     flex-grow: 1;
 }
 
+nav .nav-items a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+nav .nav-items a:hover {
+    color: #ffcccc;
+}
+
 nav .nav-toggle {
     font-family: 'Pattanakarn-ExtraBold';
     src: url('../assets/Pattanakarn_ExtraBold.ttf') format('truetype');
     flex-grow: 2;
     text-align: right;
     cursor: pointer;
+    display: none; /* Hidden on desktop */
+}
+
+@media (max-width: 1023px) {
+    nav {
+        padding: 1em 1.5em;
+    }
+
+    nav span {
+        margin: 0;
+    }
+
+    nav .nav-items {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 2px solid #ff0000;
+        padding: 1rem 0;
+        z-index: 40;
+    }
+
+    nav .nav-items.active {
+        display: flex;
+    }
+
+    nav .nav-items a {
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+
+    nav .nav-items a:last-child {
+        border-bottom: none;
+    }
+
+    nav .nav-toggle {
+        display: block; /* Show hamburger toggle on mobile */
+        font-size: 1.5rem;
+    }
 }

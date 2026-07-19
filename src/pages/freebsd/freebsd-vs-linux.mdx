@@ -154,8 +154,19 @@ import '../../styles/venn-diagram.css';
 </div>
 
 {/* Redirect Button to Venn Diagram */}
-<div class="action-row">
-    <a href={`${import.meta.env.BASE_URL}/freebsd/where-is-freebsd`} class="btn-history">
+<div className="action-row">
+    <a href={`${import.meta.env.BASE_URL}/freebsd/where-is-freebsd`} className="btn-history">
         Where is it used
     </a>
 </div>
+
+{/* Mobile Detail Drawer */}
+<div id="mobile-detail-drawer" className="mobile-drawer">
+    <div className="mobile-drawer-overlay"></div>
+    <div className="mobile-drawer-content">
+        <button className="mobile-drawer-close" aria-label="Close">&times;</button>
+        <h3 className="mobile-drawer-title"></h3>
+        <div className="mobile-drawer-body"></div>
+    </div>
+</div>
+
