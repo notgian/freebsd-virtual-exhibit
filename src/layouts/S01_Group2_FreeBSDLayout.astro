@@ -4,8 +4,25 @@ const { headings } = Astro.props;
 
 // import '../styles/global.css';
 import RedWaveBackground from "../components/freebsd/RedWaveBackground.astro";
+import '../styles/scroll-reveal.css';
+import '../styles/progress-tracker.css';
+
+const exhibitPages = [
+  { path: '/freebsd', label: 'Home' },
+  { path: '/freebsd/info-page', label: 'What is FreeBSD?' },
+  { path: '/freebsd/history-page', label: 'History' },
+  { path: '/freebsd/freebsd-vs-linux', label: 'Compare' },
+  { path: '/freebsd/where-is-freebsd', label: 'Where Used' },
+  { path: '/freebsd/portsvspkg', label: 'Ports vs Pkg' },
+  { path: '/freebsd/cli', label: 'CLI' },
+  { path: '/freebsd/references', label: 'References' },
+];
 
 const baseUrl = import.meta.env.BASE_URL;
+
+// Determine current page path relative to base
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const basePath = baseUrl.replace(/\/$/, '');
 ---
 
 <!DOCTYPE html>
@@ -22,7 +39,23 @@ const baseUrl = import.meta.env.BASE_URL;
 
     <body>
         <RedWaveBackground />
-        <!-- Uncomment this for navigation  -->
+
+        <!-- Progress Tracker -->
+        <div class="progress-tracker" id="progress-tracker">
+            <div class="progress-tracker-inner">
+                {exhibitPages.map((page) => {
+                    const fullPath = `${basePath}${page.path}`.replace(/\/\//g, '/');
+                    return (
+                        <div class="progress-step" data-page-path={fullPath}>
+                            <a href={`${baseUrl}${page.path}`} class="progress-dot" data-label={page.label}></a>
+                        </div>
+                    );
+                })}
+            </div>
+            <span class="progress-fraction" id="progress-fraction">1/8</span>
+        </div>
+
+        <!-- Navigation -->
         <nav>
             <span class='nav-title'>FreeBSD</span>
             <span class='nav-items'>
@@ -95,6 +128,62 @@ const baseUrl = import.meta.env.BASE_URL;
 
                 if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
                 if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+                // ── Scroll Reveal (IntersectionObserver) ──
+                const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+                if (revealEls.length > 0) {
+                    const revealObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                                revealObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.15 });
+
+                    revealEls.forEach(el => revealObserver.observe(el));
+                }
+
+                // ── Progress Tracker ──
+                const STORAGE_KEY = 'freebsd-exhibit-visited';
+                const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+
+                // Read visited set from sessionStorage (resets on refresh)
+                let visited = [];
+                try {
+                    visited = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+                } catch(e) { visited = []; }
+
+                // Mark current page as visited
+                if (!visited.includes(currentPath)) {
+                    visited.push(currentPath);
+                    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(visited));
+                }
+
+                // Update progress dots
+                const steps = document.querySelectorAll('.progress-step');
+                let totalPages = steps.length;
+                let visitedCount = 0;
+
+                steps.forEach(step => {
+                    const pagePath = step.getAttribute('data-page-path');
+                    const isCurrentPage = currentPath === pagePath || currentPath === pagePath + '/';
+                    const isVisited = visited.includes(pagePath) || visited.includes(pagePath + '/');
+
+                    if (isCurrentPage) {
+                        step.classList.add('current', 'visited');
+                        visitedCount++;
+                    } else if (isVisited) {
+                        step.classList.add('visited');
+                        visitedCount++;
+                    }
+                });
+
+                // Update mobile fraction
+                const fraction = document.getElementById('progress-fraction');
+                if (fraction) {
+                    fraction.textContent = `${visitedCount}/${totalPages} visited`;
+                }
             });
         </script>
     </body>

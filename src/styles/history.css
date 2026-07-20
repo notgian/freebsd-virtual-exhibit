@@ -437,26 +437,6 @@
   }
 }
 
-/* Added the button for venn diagram */
-.btn-history {
-  background: linear-gradient(135deg, #3a0000 0%, #1a0000 100%);
-  color: #fff;
-  border: 1px solid rgba(255, 0, 0, 0.2);
-  padding: 0.8rem 2.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-history:hover {
-  background: linear-gradient(135deg, #4a0000 0%, #2a0000 100%);
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-}
-
 .action-row {
   position: absolute;
   bottom: 3rem;
