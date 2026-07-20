@@ -259,17 +259,14 @@
 }
 
 @media (max-width: 1023px) {
-    /* Hide the inline point details popup on mobile so we don't hover it */
     .point-details {
         display: none !important;
     }
-    /* Add a visual indicator or slightly different styling on mobile if needed */
     .venn-point {
         cursor: pointer;
     }
 }
 
-/* Mobile bottom drawer sheet styles */
 .mobile-drawer {
     position: fixed;
     left: 0;

@@ -350,7 +350,7 @@ nav .nav-toggle {
     flex-grow: 2;
     text-align: right;
     cursor: pointer;
-    display: none; /* Hidden on desktop */
+    display: none; 
 }
 
 @media (max-width: 1023px) {
@@ -363,7 +363,7 @@ nav .nav-toggle {
     }
 
     nav .nav-items {
-        display: none; /* Hidden by default on mobile */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -392,7 +392,7 @@ nav .nav-toggle {
     }
 
     nav .nav-toggle {
-        display: block; /* Show hamburger toggle on mobile */
+        display: block;
         font-size: 1.5rem;
     }
 }
