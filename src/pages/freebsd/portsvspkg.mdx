@@ -1,0 +1,18 @@
+---
+layout: '../../layouts/S01_Group2_FreeBSDLayout.astro'
+title: "Ports vs Pkg"
+author: "David, Justin; Ortha, Gian; Perdon, Linus; Tan, Neil; Villorente, Khyle"
+readingTime: "69 minutes"
+---
+
+import '../../styles/freebsd.css';
+import '../../styles/cli.css';
+import PortsVsPkg from '../../components/PortsVsPkg.jsx';
+
+<PortsVsPkg client:load />
+
+<div class="action-row">
+        <a href={`${import.meta.env.BASE_URL}/freebsd/cli`} class="btn-history">
+            Try CLI
+        </a>
+    </div>

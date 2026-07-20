@@ -58,8 +58,16 @@ One of the little challenges we had in the development part this project is that
 
 Luckily, it was not too much of a hassle because (1) a template for the project was already provided, and (2) due to the simple, static nature of the webpages we were making, it wasn't too much of a hassle setting up each page. Something interesting that we noticed that Astro does is to actually remove the hassle of having to manually create a route ourselves, and just make that route for us based on the filetree.
 
+### The Venn Diagram Problem...
+There was an relatively minor bug we discovered before the mid-milestone submission, and that is none of the venn diagram details seemed to render in the right order. Specifically, the details of the outer points rendered *behind* the intersection portion. We suspected it wassomething to do with z-indexes and parent element z-index priorities, but after 1-2 hours of debugging, we just gave up and decided to change the approach, this time using a modal whose content changes per venn diagram point.
+
+This was not too hard to do, but there was a lot of back and forth trying to figure out what would work, since it was not really planned and was just being spontaneously programmed as we went along. Eventually, we settled with a simple event dispatch, listener loop for opening the modal and setting its contents. In this implementation, the code for the modal was also separated into its own component(s) for easier management.
+
+The modal apprach proved to be a good idea as it just made the implementatin easier, but also made it more mobile-friendly.
+
 ## TO-DOs
 - [ ] Make navbar collapsible
 - [ ] Make layout mobile responsive
 - [ ] Fix a few visual bugs
+    - [x] *Specifically* fix the bug of the venn diagram
 - [ ] Improve readability of some components 

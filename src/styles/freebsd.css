@@ -141,7 +141,16 @@
     text-align: center;
 }
 
-
+/*redundance  code with this being in its own css file */
+/*
+.venn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    position: relative;
+    z-index: 10;
+}
 
 .venn-point {
     position: relative;
@@ -220,14 +229,18 @@
     position: absolute;
     margin: 0 !important;
 }
+*/
 
 /* Linux Placement (Left Circle) */
+/*
 .l-pos-1 { top: 20%; left: 35%; }
 .l-pos-2 { top: 40%; left: 27.5%; }
 .l-pos-3 { top: 60%; left: 10%; }
 .l-pos-4 { top: 80%; left: 30%; }
+*/
 
 /* FreeBSD Placement (Right Circle) */
+/*
 .f-pos-1 { top: 20%; right: 25%; }
 .f-pos-2 { top: 40%; right: 28%; }
 .f-pos-3 { top: 60%; right: 17.5%; }
@@ -262,6 +275,7 @@
     display: flex;
     justify-content: center;
 }
+*/
 
 /* Keeps the button fixed at the bottom right of the screen */
 /*
