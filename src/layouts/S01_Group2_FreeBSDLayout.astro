@@ -54,7 +54,7 @@ const baseUrl = import.meta.env.BASE_URL;
                     });
                 }
 
-                // Venn diagram detail drawer (only hooks up if venn points exist)
+                // Venn diagram detail drawer
                 const isMobile = () => window.innerWidth < 1024;
                 const drawer = document.getElementById('mobile-detail-drawer');
                 const drawerTitle = drawer ? drawer.querySelector('.mobile-drawer-title') : null;
@@ -68,7 +68,6 @@ const baseUrl = import.meta.env.BASE_URL;
                         point.addEventListener('click', (e) => {
                             if (!isMobile()) return;
                             
-                            // Extract plain text header
                             let titleText = '';
                             for (const node of point.childNodes) {
                                 if (node.nodeType === Node.TEXT_NODE) {
