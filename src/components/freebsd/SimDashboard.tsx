@@ -43,11 +43,11 @@ export default function SimDashboard() {
       <div className="relative flex w-full flex-col items-center gap-10">
  
         {sim.phase === "idle" && (
-          <p className="font-mono text-xs text-zinc-600 text-center">
+          <p className="rounded-full border border-red-500/25 bg-black/75 px-4 py-2 text-center font-mono text-xs text-zinc-200 shadow-[0_0_18px_rgba(0,0,0,0.45)] backdrop-blur-sm">
             Try:{" "}
             <button
               onClick={handleHintClick}
-              className="text-red-500/60 hover:text-red-400 underline underline-offset-2 transition-colors"
+              className="font-semibold text-red-300 underline underline-offset-2 decoration-red-400/70 transition-colors hover:text-red-200 hover:decoration-red-200"
             >
               {SIM_COMMAND}
             </button>
