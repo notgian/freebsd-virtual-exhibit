@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import '../styles/ports-vs-pkg.css';
 
 // Constant containing our simulation data
@@ -61,6 +61,16 @@ export default function PortsVsPkg() {
   const [portsStatusClass, setPortsStatusClass] = useState("status-indicator");
 
   const compileIntervalRef = useRef(null);
+  
+  // Ref for auto-scrolling the terminal
+  const terminalEndRef = useRef(null);
+
+  // Automatically scroll to the bottom of the terminal when new logs appear
+  useEffect(() => {
+    if (terminalEndRef.current) {
+      terminalEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [portsOutput]);
 
   const startSimulation = () => {
     setBtnDisabled(true);
@@ -107,8 +117,8 @@ export default function PortsVsPkg() {
   };
 
   return (
-
-    <div className="minigame-wrapper px-4 md:px-8 w-full overflow-x-hidden max-w-full">
+  
+    <div className="minigame-wrapper px-4 md:px-8 w-full max-w-6xl mx-auto overflow-x-hidden">
       <div className="header-section">
         <h1 className="game-title">Software Installation: Ports vs. Pkg</h1>
         
@@ -131,33 +141,34 @@ export default function PortsVsPkg() {
         </button>
       </div>
 
-      <div className="race-track flex flex-col lg:flex-row gap-6 w-full mt-8">
+      <div className="race-track flex flex-col xl:flex-row gap-6 w-full mt-8">
         
-        {/* FIX 2: Added min-w-0 to prevent flexbox from stretching the card */}
-        <div className="competitor-card ports-card w-full lg:w-1/2 min-w-0">
+   
+        <div className="competitor-card ports-card w-full xl:w-1/2 min-w-0">
           <h2 className="comp-title">The Ports Collection</h2>
           <div className="badge ports-badge">Building from Source</div>
           
           <div className="terminal-window overflow-hidden w-full">
-            {/* FIX 3: Flex header, added truncate to cut off the title with '...' if it's too long */}
             <div className="terminal-header flex items-center gap-1 w-full overflow-hidden">
               <span className="dot red shrink-0"></span>
               <span className="dot yellow shrink-0"></span>
               <span className="dot green shrink-0"></span>
               <span className="term-title text-xs sm:text-sm truncate w-full ml-1">root@freebsd:/usr/ports/www/nginx # make install</span>
             </div>
-            <div className="terminal-body w-full">
+            
+            <div className="terminal-body w-full overflow-x-auto overflow-y-auto max-h-[250px] pb-2">
               {portsOutput.map((line, index) => (
-                // FIX 4: Added break-all and text-xs to force long matrix code to wrap on a new line
-                <div key={index} className="terminal-line break-all text-xs sm:text-sm">{line}</div>
+                <div key={index} className="terminal-line whitespace-nowrap text-xs sm:text-sm pr-4">{line}</div>
               ))}
               <span className="cursor">_</span>
+              <div ref={terminalEndRef} />
             </div>
           </div>
           <div className={portsStatusClass}>{portsStatus}</div>
         </div>
 
-        <div className="competitor-card pkg-card w-full lg:w-1/2 min-w-0">
+        {/* CHANGED: Replaced lg:w-1/2 with xl:w-1/2 */}
+        <div className="competitor-card pkg-card w-full xl:w-1/2 min-w-0">
           <h2 className="comp-title">The Pkg Manager</h2>
           <div className="badge pkg-badge">Pre-compiled Binary</div>
           
