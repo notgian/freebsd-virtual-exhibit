@@ -45,7 +45,6 @@ const POINTS = [
 ];
 
 export default function PortsVsPkg() {
-  // --- STATE MANAGEMENT ---
   const [btnText, setBtnText] = useState("Execute Installation");
   const [btnDisabled, setBtnDisabled] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
@@ -63,9 +62,7 @@ export default function PortsVsPkg() {
 
   const compileIntervalRef = useRef(null);
 
-
   const startSimulation = () => {
-
     setBtnDisabled(true);
     setBtnText("Installation in progress...");
     setShowExplanation(false);
@@ -81,14 +78,12 @@ export default function PortsVsPkg() {
 
     if (compileIntervalRef.current) clearInterval(compileIntervalRef.current);
 
-  
     setTimeout(() => {
       setPkgProgress(100);
       setPkgLog("Successfully installed in 1.2s");
       setPkgStatus("COMPLETE");
       setPkgStatusClass("status-indicator status-done");
     }, 1200);
-
 
     let logIndex = 0;
     compileIntervalRef.current = setInterval(() => {
@@ -101,7 +96,6 @@ export default function PortsVsPkg() {
         setPortsStatusClass("status-indicator status-done");
         setBtnText("Race Finished");
         
-
         setShowExplanation(true);
         
         setTimeout(() => {
@@ -113,7 +107,8 @@ export default function PortsVsPkg() {
   };
 
   return (
-    <div className="minigame-wrapper">
+
+    <div className="minigame-wrapper px-4 md:px-8 w-full overflow-x-hidden max-w-full">
       <div className="header-section">
         <h1 className="game-title">Software Installation: Ports vs. Pkg</h1>
         
@@ -136,20 +131,25 @@ export default function PortsVsPkg() {
         </button>
       </div>
 
-      <div className="race-track">
-        {/* Left Side: Ports (Source Code) */}
-        <div className="competitor-card ports-card">
+      <div className="race-track flex flex-col lg:flex-row gap-6 w-full mt-8">
+        
+        {/* FIX 2: Added min-w-0 to prevent flexbox from stretching the card */}
+        <div className="competitor-card ports-card w-full lg:w-1/2 min-w-0">
           <h2 className="comp-title">The Ports Collection</h2>
           <div className="badge ports-badge">Building from Source</div>
           
-          <div className="terminal-window">
-            <div className="terminal-header">
-              <span className="dot red"></span><span className="dot yellow"></span><span className="dot green"></span>
-              <span className="term-title">root@freebsd:/usr/ports/www/nginx # make install</span>
+          <div className="terminal-window overflow-hidden w-full">
+            {/* FIX 3: Flex header, added truncate to cut off the title with '...' if it's too long */}
+            <div className="terminal-header flex items-center gap-1 w-full overflow-hidden">
+              <span className="dot red shrink-0"></span>
+              <span className="dot yellow shrink-0"></span>
+              <span className="dot green shrink-0"></span>
+              <span className="term-title text-xs sm:text-sm truncate w-full ml-1">root@freebsd:/usr/ports/www/nginx # make install</span>
             </div>
-            <div className="terminal-body">
+            <div className="terminal-body w-full">
               {portsOutput.map((line, index) => (
-                <div key={index} className="terminal-line">{line}</div>
+                // FIX 4: Added break-all and text-xs to force long matrix code to wrap on a new line
+                <div key={index} className="terminal-line break-all text-xs sm:text-sm">{line}</div>
               ))}
               <span className="cursor">_</span>
             </div>
@@ -157,35 +157,33 @@ export default function PortsVsPkg() {
           <div className={portsStatusClass}>{portsStatus}</div>
         </div>
 
-        {/* Right Side: Pkg (Binary) */}
-        <div className="competitor-card pkg-card">
+        <div className="competitor-card pkg-card w-full lg:w-1/2 min-w-0">
           <h2 className="comp-title">The Pkg Manager</h2>
           <div className="badge pkg-badge">Pre-compiled Binary</div>
           
-          <div className="gui-window">
+          <div className="gui-window w-full overflow-hidden">
             <div className="gui-header">Package Installer</div>
-            <div className="gui-body">
-              <div className="pkg-info">
-                <span className="pkg-name">nginx-1.24.0.pkg</span>
-                <span className="pkg-size">2.4 MB</span>
+            <div className="gui-body w-full">
+              <div className="pkg-info flex justify-between w-full">
+                <span className="pkg-name truncate mr-2">nginx-1.24.0.pkg</span>
+                <span className="pkg-size shrink-0">2.4 MB</span>
               </div>
-              <div className="progress-container">
+              <div className="progress-container w-full">
                 <div 
                   className="progress-bar" 
                   style={{ width: `${pkgProgress}%` }}
                 ></div>
               </div>
-              <div className="log-output">{pkgLog}</div>
+              <div className="log-output text-xs sm:text-sm">{pkgLog}</div>
             </div>
           </div>
           <div className={pkgStatusClass}>{pkgStatus}</div>
         </div>
       </div>
 
-      {/* The new "What Just Happened" Panel using your Tailwind styles */}
       <div
         className={`overflow-hidden transition-all duration-700 ease-in-out ${
-          showExplanation ? "max-h-[800px] opacity-100 mt-4" : "max-h-0 opacity-0"
+          showExplanation ? "max-h-[800px] opacity-100 mt-6" : "max-h-0 opacity-0"
         }`}
       >
         <div className="rounded-md border border-zinc-700 bg-zinc-900/80 p-6 font-mono">
