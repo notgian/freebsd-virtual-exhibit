@@ -86,8 +86,7 @@
 
 /* --- Race Track (Two Columns) --- */
 .race-track {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 2rem;
   margin-bottom: 1rem;
 }
