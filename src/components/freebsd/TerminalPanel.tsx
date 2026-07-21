@@ -60,13 +60,13 @@ export default function TerminalPanel({ user, host, command }: TerminalPanelProp
   const lines = useMemo(() => evaluate(trimmed), [trimmed]);
   return (
     <div className="flex h-72 w-full flex-col overflow-hidden rounded-md border border-red-600/70 bg-black/90 p-5 font-mono text-sm text-white shadow-[0_0_25px_-5px_rgba(239,68,68,0.4)]">
-      <p className="mb-3 shrink-0">
-        <span className="text-red-500">{user}@{host}</span>
-        <span className="text-white">{"> "}{trimmed || "help"}</span>
+      <p className="mb-3 shrink-0 font-semibold tracking-wide text-amber-300">
+        <span className="text-red-400">{user}@{host}</span>
+        <span className="text-zinc-100">{"> "}{trimmed || "help"}</span>
       </p>
       <div className="min-h-0 flex-1 overflow-y-auto space-y-0.5">
         {lines.map((line, i) => (
-          <p key={i} className="text-zinc-300 whitespace-pre">{line}</p>
+          <p key={i} className="whitespace-pre text-zinc-300">{line}</p>
         ))}
       </div>
     </div>

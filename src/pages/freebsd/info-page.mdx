@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/FreeBSDLayout.astro'
+layout: '../../layouts/S01_Group2_FreeBSDLayout.astro'
 title: "Linux vs FreeBSD"
 author: "David, Justin; Ortha, Gian; Perdon, Linus; Tan, Neil; Villorente, Khyle"
 readingTime: "69 minutes"
@@ -15,8 +15,8 @@ import FreeBSD from '../../assets/infoPage-img.png';
     
     {/* Left Column */}
     <section class="col-left">
-      <h1 class="main-heading">What is<br />FreeBSD?</h1>
-      <div class="image-container">
+      <h1 class="main-heading reveal-left">What is<br />FreeBSD?</h1>
+      <div class="image-container reveal-right reveal-delay-1">
         {/* Replace with your actual imported image component if needed */}
         <img src={FreeBSD.src} alt="InfoPage Image" class="neon-img" />
       </div>
@@ -26,7 +26,7 @@ import FreeBSD from '../../assets/infoPage-img.png';
     <section class="col-right">
       
       {/* Service Card 1 */}
-      <div class="glass-card">
+      <div class="glass-card reveal reveal-delay-1">
         <div class="card-title-row">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
@@ -49,7 +49,7 @@ import FreeBSD from '../../assets/infoPage-img.png';
       </div>
 
       {/* Service Card 2 */}
-      <div class="glass-card">
+      <div class="glass-card reveal reveal-delay-2">
         <div class="card-title-row">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -66,7 +66,7 @@ import FreeBSD from '../../assets/infoPage-img.png';
       </div>
 
       {/* Action Button */}
-      <div class="action-row">
+      <div class="action-row reveal reveal-delay-3">
         <a href={`${import.meta.env.BASE_URL}/freebsd/history-page`} class="btn-history">History</a>
       </div>
 

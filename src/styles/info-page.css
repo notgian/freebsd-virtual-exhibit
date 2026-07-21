@@ -73,6 +73,8 @@
     line-height: 1.1;
     margin: 0;
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(0, 0, 0, 0.5);
   }
 
   .image-container {
@@ -141,24 +143,6 @@
     justify-content: flex-end;
     margin-top: 1rem;
   }
-
-  .btn-history {
-    background: linear-gradient(135deg, #3a0000 0%, #1a0000 100%);
-    color: #fff;
-    border: 1px solid rgba(255, 0, 0, 0.2);
-    padding: 0.8rem 2.5rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .btn-history:hover {
-    background: linear-gradient(135deg, #4a0000 0%, #2a0000 100%);
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-  }
-
 
   @media (max-width: 900px) {
     .freebsd-wrapper {
