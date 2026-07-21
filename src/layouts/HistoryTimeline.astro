@@ -44,6 +44,11 @@ import freebsdv9 from '../assets/freebsdv9.png'
         </div>
       </div>
     </div>
+    <div class="action-row">
+        <a href={`${import.meta.env.BASE_URL}/freebsd/freebsd-vs-linux`} class="btn-history">
+            Compare
+        </a>
+    </div>
   </div>
 </div>
 
@@ -147,8 +152,12 @@ freebsdjailSrc: freebsdjail.src, freebsdv2_1_5Src: freebsdv2_1_5.src, freebsdv9S
       const activeIndex = years.indexOf(activeYear);
       if (activeIndex === -1) return;
 
+      // Check if user is on a mobile screen
+      const isMobile = window.innerWidth <= 768;
+
       nodeWrappers.forEach((wrapper, index) => {
-        const angle = (index - activeIndex) * 22;
+        // Reverse the angle multiplier (-1) on mobile so future years are on the right
+        const angle = (index - activeIndex) * 22 * (isMobile ? -1 : 1);
         wrapper.style.transform = `rotate(${angle}deg)`;
         
         const nodeCircle = wrapper.querySelector('.node');
@@ -161,6 +170,10 @@ freebsdjailSrc: freebsdjail.src, freebsdv2_1_5Src: freebsdv2_1_5.src, freebsdv9S
         }
       });
     }
+
+    window.addEventListener('resize', () => {
+      updateWheel(currentYear);
+    });
 
     function renderCard(year, index) {
       const data = historyData[year];
@@ -341,49 +354,57 @@ freebsdjailSrc: freebsdjail.src, freebsdv2_1_5Src: freebsdv2_1_5.src, freebsdv9S
       wrapper.addEventListener('wheel', handleScroll, { passive: false });
 
       // Touch swipe handler for mobile
+      let touchStartX = 0;
       let touchStartY = 0;
+      
       wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
       }, { passive: true });
 
       wrapper.addEventListener('touchmove', (e) => {
+        const touchEndX = e.touches[0].clientX;
         const touchEndY = e.touches[0].clientY;
+        
+        const diffX = touchStartX - touchEndX;
         const diffY = touchStartY - touchEndY;
         const now = performance.now();
 
-        if (Math.abs(diffY) > 40) {
+        if (Math.abs(diffX) > 40 || Math.abs(diffY) > 40) {
           const activeNode = document.querySelector('.node.active');
           if (!activeNode) return;
           const currentYear = activeNode.getAttribute('data-year');
           let index = years.indexOf(currentYear);
           if (index === -1) return;
 
-          if (diffY > 0) {
-            // swipe up -> scroll down -> next year
-            if (index < years.length - 1) {
-              e.preventDefault();
-              if (now - lastTime > scrollCooldown) {
-                index++;
-                selectYear(years[index]);
-                lastTime = now;
+          // Strictly limit interaction to Horizontal Swipes
+          if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) {
+              // Swipe left -> Next year
+              if (index < years.length - 1) {
+                e.preventDefault();
+                if (now - lastTime > scrollCooldown) {
+                  index++;
+                  selectYear(years[index]);
+                  lastTime = now;
+                }
+              }
+            } else {
+              // Swipe right -> Previous year
+              if (index > 0) {
+                e.preventDefault();
+                if (now - lastTime > scrollCooldown) {
+                  index--;
+                  selectYear(years[index]);
+                  lastTime = now;
+                }
               }
             }
-          } else {
-            // swipe down -> scroll up -> previous year
-            if (index > 0) {
-              e.preventDefault();
-              if (now - lastTime > scrollCooldown) {
-                index--;
-                selectYear(years[index]);
-                lastTime = now;
+            touchStartX = touchEndX; // Reset tracking point
           }
-        }
-          }
-          touchStartY = touchEndY;
         }
       }, { passive: false });
     }
-
     // Initialize layout at 1993
     selectYear("1993");
   });
