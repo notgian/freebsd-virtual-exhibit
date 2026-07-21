@@ -9,13 +9,5 @@ import '../../styles/history.css';
 import '../../styles/freebsd.css';
 import HistoryTimeline from '../../layouts/HistoryTimeline.astro';
 
-<div class="history-wrapper">
-    <HistoryTimeline />
+<HistoryTimeline />
 
-    {/* Redirect Button to Venn Diagram */}
-    <div class="action-row">
-        <a href={`${import.meta.env.BASE_URL}/freebsd/freebsd-vs-linux`} class="btn-history">
-            Compare
-        </a>
-    </div>
-</div>
