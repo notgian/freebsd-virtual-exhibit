@@ -264,3 +264,36 @@ Generative AI and LLMs were used to aid in the creation of this project primaril
 - ui/ux development
 - reformatting of text and grammar suggestions
 
+# References
+
+- A brief history of FreeBSD. (n.d.). https://docs-archive.freebsd.org/doc/2.1.5-RELEASE/usr/share/doc/handbook/handbook3.html
+- Cruz, A. (2026). *Jails and containers*. Retrieved June 30, 2026, from https://docs.freebsd.org/en/books/handbook/jails
+- FreeBSD Documentation Portal. (n.d.). *FreeBSD Documentation Portal*. https://docs.freebsd.org/en/books/handbook/introduction/
+- FreeBSD Foundation. (2023, June). *FreeBSD timeline*. https://freebsdfoundation.org/wp-content/uploads/2023/06/FreeBSD_timeline.pdf
+- FreeBSD Foundation. (2023, June 22). *Celebrating 30 Years of FreeBSD: Licensing*. https://freebsdfoundation.org/blog/celebrating-30-years-of-freebsd-licensing/
+- FreeBSD Foundation. (2024a, March 18). *NetApp Case Study*. https://freebsdfoundation.org/netapp-case-study/
+- FreeBSD Foundation. (2024b, May 1). *Netflix Case Study*. https://freebsdfoundation.org/netflix-case-study/
+- FreeBSD Foundation. (2024c, November 5). *How RG Nets Uses FreeBSD to Build the Future of High-Performance Edge Networks*. https://freebsdfoundation.org/end-user-stories/rg-nets-case-study/
+- FreeBSD Foundation. (2025, December 22). *What is FreeBSD?* https://freebsdfoundation.org/freebsd-project/what-is-freebsd/
+- FreeBSD Project. (n.d.). *FreeBSD Manual Pages: limits(1)*. Retrieved July 2, 2026, from https://man.freebsd.org/cgi/man.cgi?query=limits&sektion=1&manpath=FreeBSD+15.1-RELEASE+and+Ports
+- FreeBSD.software. (2026). *FreeBSD in Production: Who Uses It and Why*. Retrieved July 2, 2026, from https://www.freebsdsoftware.org/blog/who-uses-freebsd-production.html
+- Geeks for Geeks. (2025). *What is Enterprise Linux?* Retrieved July 2, 2026, from https://www.geeksforgeeks.org/linux-unix/what-is-enterprise-linux/
+- Geeks for Geeks. (2026). *Kernel in Operating System*. Retrieved July 1, 2026, from https://www.geeksforgeeks.org/operating-systems/kernel-in-operating-system/
+- *Getting Started with pfSense Software*. (n.d.). https://www.pfsense.org/getting-started/
+- HowStuffWorks. (2024). *Unix vs. Linux: Understanding the Core Differences and Similarities*. Retrieved July 2, 2026, from https://computer.howstuffworks.com/question246.htm
+- Linux Vox. (2025). *Unix OS vs Linux: A Comprehensive Comparison*. Retrieved July 2, 2026, from https://linuxvox.com/blog/unix-os-vs-linux
+- Linux Vox. (2026). *Linux Chroot Jail vs FreeBSD Jail: Key Differences, Security, Flexibility & Synonym Myths Explained*. Retrieved July 2, 2026, from https://linuxvox.com/blog/what-s-the-difference-between-a-linux-chroot-jail-and-a-freebsd-jail/
+- Linux Vox. (2026). *Linux Licensing: An In-Depth Exploration*. Retrieved July 1, 2026, from https://linuxvox.com/blog/linux-is-distributed-under-which-license/
+- Linux Vox. (2026). *Mastering Linux Configuration Files*. Retrieved July 2, 2026, from https://linuxvox.com/blog/linux-conf-files
+- Mosyan, D. (2026). *Linux cgroups explained: How containers use it*. Retrieved July 2, 2026, from https://medium.com/@dmosyan/linux-cgroups-explained-how-containers-use-it-c99eebb8c9c6
+- Prakash, A. (2023). *Linux Is Just a Kernel: What Does It Mean?* Retrieved July 1, 2026, from https://itsfoss.com/linux-kernel-os/
+- Reuschling, B. (2026). *The Z File System (ZFS)*. Retrieved June 30, 2026, from https://docs.freebsd.org/en/books/handbook/zfs
+- Taylor, R. (2025). *Linux Desktop Is Fragmented (and That's Not a Bad Thing)*. Retrieved July 1, 2026, from https://itsfoss.com/opinion/linux-fragmentation-as-positive/
+- The FreeBSD Foundation. (n.d.). *About the Foundation*. Retrieved June 30, 2026, from https://freebsdfoundation.org/about-us/about-the-foundation
+- The FreeBSD Project. (2025). *About FreeBSD*. Retrieved June 30, 2026, from https://www.freebsd.org/about
+- The FreeBSD Project. (n.d.). *The FreeBSD Project Releases*. https://www.freebsd.org/releases/
+- *Why FreeBSD? | pfSense Documentation*. (n.d.). https://docs.netgate.com/pfsense/en/latest/general/why-freebsd.html
+- Ziaee, A. (2026). *Configuration, Services, Logging and Power Management*. Retrieved July 2, 2026, from https://docs.freebsd.org/en/books/handbook/config
+- Ziaee, A. (2026). *Desktop Environments*. Retrieved July 2, 2026, from https://docs.freebsd.org/en/books/handbook/desktop
+- Ziaee, A. (2026). *Installing Applications: Packages and Ports*. Retrieved July 2, 2026, from https://docs.freebsd.org/en/books/handbook/ports
+- Ziaee, A. (2026). *Linux Binary Compatibility*. Retrieved June 30, 2026, from https://docs.freebsd.org/en/books/handbook/linuxemu
